@@ -1,65 +1,66 @@
 /* ========================================================================
-   ★ EASY CUSTOMISATION BLOCK (EDIT EVERYTHING IN ONE PLACE HERE!) ★
-   ======================================================================== */
-const BIRTHDAY_CONFIG = {
-  herName: "Sophie",
-  dateBadge: "Celebrating You Today • ♡",
-  heroSubtitle: "A little something made just for you.",
+       ★ EASY CUSTOMISATION BLOCK (EDIT EVERYTHING IN ONE PLACE HERE!) ★
+       ======================================================================== */
+    const BIRTHDAY_CONFIG = {
+      herName: "Constance",
+      dateBadge: "Celebrating You!! Today • ♡",
+      heroSubtitle: "Here's something to lighten up your exam mood!!",
 
-  // 4 Scrapbook Polaroid Memories
-  photos: [
-    {
-      src: "assets/photo1.jpg",
-      alt: "Coffee date together",
-      caption: "Our Coffee Date",
-      dateTag: "Memory #1",
-      note: "I still remember how much we laughed that afternoon."
-    },
-    {
-      src: "assets/photo2.jpg",
-      alt: "Golden hour walk",
-      caption: "Golden Hour Walk",
-      dateTag: "Memory #2",
-      note: "Every walk feels ten times better with your hand in mine."
-    },
-    {
-      src: "assets/photo3.jpg",
-      alt: "Late night study break",
-      caption: "Study Break Snacks",
-      dateTag: "Memory #3",
-      note: "Thank you for making even busy exam days feel warm and calm."
-    },
-    {
-      src: "assets/photo4.jpg",
-      alt: "My favourite smile",
-      caption: "My Favourite Smile",
-      dateTag: "Memory #4",
-      note: "You wearing blue will forever be my favourite sight."
-    }
-  ],
+      // 4 Scrapbook Polaroid Memories
+      // Put your own photos inside an "assets" folder (e.g. assets/photo1.jpg)
+      photos: [
+        {
+          src: "assets/photo1.jpg",
+          alt: "The Very Beginning",
+          caption: "The Very Beginning",
+          dateTag: "Memory #1",
+          note: "Throwback to the Year 7 Era HAHAHAHA"
+        },
+        {
+          src: "assets/photo2.jpg",
+          alt: "The Night I Made You Mine",
+          caption: "The Night I Made You Mine",
+          dateTag: "Memory #2",
+          note: "I won't ever forget that night.. One of my happiest memories"
+        },
+        {
+          src: "assets/photo3.jpg",
+          alt: "Late night study break",
+          caption: "Kinda Our last hangout?",
+          dateTag: "Memory #3",
+          note: "Thank you for always inviting me!! So fun going out with you!"
+        },
+        {
+          src: "assets/photo4.jpg",
+          alt: "My favourite smile",
+          caption: "My Favourite Person",
+          dateTag: "Memory #4",
+          note: "I hope that I always get to call you mine."
+        }
+      ],
 
-  // Handwritten-style Letter
-  letterGreeting: "My dearest Sophie,",
-  letterParagraphs: [
-    "Happy Birthday, my love. Even in the middle of busy lectures and exam revision, my favourite part of every single day is still talking to you, seeing your smile, and knowing I get to call you mine.",
-    "You bring so much gentleness, warmth, and quiet magic into my life. Whether we are dressed up for a proper date or just sharing snacks in comfy clothes, being around you always feels like home.",
-    "I made this little blue-and-cream scrapbook page so you have something you can open whenever you want a reminder of how deeply you are loved. I hope this new year of your life brings you every bit of happiness you give to me every day."
-  ],
-  letterClosingLine: "Forever yours,",
-  letterSignature: "Your Boyfriend ♡",
+      // Handwritten-style Letter
+      letterGreeting: "My dearest Constance,",
+      letterParagraphs: [
+        "Happy Birthday, my love. Even in the middle of busy lectures and exam revision, my favourite part of every single day is still talking to you, seeing your smile, and knowing I get to call you mine.",
+        "You bring so much gentleness, warmth, and quiet magic into my life. Whether we are dressed up for a proper date or just sharing snacks in comfy clothes, being around you always feels like home.",
+        "I made this little blue-and-cream scrapbook page so you have something you can open whenever you want a reminder of how deeply you are loved. I hope this new year of your life brings you every bit of happiness you give to me every day."
+      ],
+      letterClosingLine: "Forever yours,",
+      letterSignature: "Me, hehehe ♡",
 
-  // Hidden Surprise Envelope Message
-  surpriseBadge: "Birthday Date Voucher",
-  surpriseTitle: "Dinner & Dessert On Me!",
-  surpriseMessage:
-    "Redeemable anytime for one full birthday celebration date: your favourite food, sweet treats, and zero talk about exams all evening.",
-  surpriseFineprint: "Valid forever • No expiration date ♡",
+      // Hidden Surprise Envelope Message
+      surpriseBadge: "Whatever You Wn  Voucher",
+      surpriseTitle: "Dinner & Dessert On Me!",
+      surpriseMessage:
+        "Redeemable anytime for one full birthday celebration date: your favourite food, sweet treats, and zero talk about exams all evening.",
+      surpriseFineprint: "Valid forever • No expiration date ♡",
 
-  // Footer Closing
-  closingMessage:
-    "Thank you for being the brightest, kindest part of my world. Here is to many more birthdays together.",
-  closingFootnote: "Made with love • Always & Forever"
-};
+      // Footer Closing
+      closingMessage:
+        "Thank you for being the brightest, kindest part of my world. Here is to many more birthdays together.",
+      closingFootnote: "Made with love • Always & Forever"
+    };
 
 /* ========================================================================
    APPLICATION LOGIC
