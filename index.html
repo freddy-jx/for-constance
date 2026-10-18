@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Happy Birthday, My Love ♡</title>
 
-  <!-- Google Fonts: Cormorant Garamond (Elegant Serif) & Plus Jakarta Sans (Clean Body) -->
+  <!-- Google Fonts: Cormorant Garamond (Luxury Serif), Plus Jakarta Sans (Clean UI) & Caveat (Handwritten Back-of-Photo Notes) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
   <!-- 
     NOTE FOR LOCAL / GITHUB PAGES / NETLIFY USE:
@@ -18,44 +18,50 @@
   -->
   <style>
     /* ==========================================================================
-       1. COLOUR PALETTE & DESIGN TOKENS
-       Blends her favourite Hydrangea/Dusty Blue with Warm Cream, Blush Pink & Brown Ink
+       1. ARTISAN COLOUR PALETTE & DESIGN TOKENS
+       Harmonizes Hydrangea / Dusty Blue with Warm Cream, Blush Pink, Muted Rose & Espresso
        ========================================================================== */
     :root {
-      /* Paper & Scrapbook Backgrounds */
+      /* Tactile Paper & Scrapbook Backgrounds */
       --bg-cream: #FAF6F0;
       --bg-paper: #FFFDF9;
       --bg-linen: #F3ECE1;
+      --bg-kraft: #EFE5D5;
 
-      /* Her Favourite Colour: Soft Hydrangea & Dusty Periwinkle Blue */
+      /* Her Favourite Colour: Hydrangea & Dusty Periwinkle Blue */
       --blue-primary: #5B82A6;       /* Romantic dusty blue for buttons & accents */
-      --blue-deep: #3E5F7E;          /* Darker slate blue for hover states & accessible text */
-      --blue-soft: #DCE7F2;          /* Pale hydrangea blue for washi tape & cards */
+      --blue-mid: #89A9C6;           /* Soft periwinkle mid-tone */
+      --blue-deep: #3D5A75;          /* Deep slate blue for high-contrast legibility */
+      --blue-soft: #DCE7F2;          /* Pale hydrangea blue for washi tape & stationery */
       --blue-mist: #EDF3F8;          /* Whisper-soft blue tint */
 
-      /* Blush Pink & Muted Rose Accents */
-      --blush-soft: #F5E1DF;         /* Soft blush pink */
-      --rose-muted: #C88A88;         /* Muted antique rose for hearts & wax seal */
-      --rose-deep: #A66765;
+      /* Blush Pink, Muted Rose & Champagne Gold Accents */
+      --blush-soft: #F4E1E0;         /* Soft blush pink */
+      --rose-muted: #C88A8B;         /* Muted antique rose for hearts & wax seal */
+      --rose-deep: #9E6364;
+      --gold-brass: #C5A059;         /* Vintage brass paperclip & foil detail */
 
-      /* Subtle Warm Browns (Ink & Borders) */
-      --ink-brown: #3D312A;          /* Primary readable text */
-      --ink-muted: #756358;          /* Captions & secondary text */
-      --border-warm: #E4D9C8;        /* Delicate card borders */
+      /* Espresso Brown Ink & Borders */
+      --ink-brown: #4A3B36;          /* Primary espresso text */
+      --ink-muted: #7A6860;          /* Captions & secondary text */
+      --ink-pen: #2C4A6F;            /* Fountain pen blue-black ink for handwritten notes */
+      --border-warm: #E4D8C8;        /* Delicate card borders */
 
-      /* Shadows & Radius */
-      --shadow-soft: 0 10px 30px -5px rgba(61, 49, 42, 0.07), 0 4px 12px -2px rgba(61, 49, 42, 0.04);
-      --shadow-polaroid: 0 12px 28px -4px rgba(61, 49, 42, 0.11), 0 2px 6px rgba(61, 49, 42, 0.05);
+      /* Artisan Multi-Layered Shadows & Radius */
+      --shadow-soft: 0 10px 30px -5px rgba(74, 59, 54, 0.07), 0 4px 12px -2px rgba(74, 59, 54, 0.04);
+      --shadow-polaroid: 0 14px 32px -6px rgba(74, 59, 54, 0.12), 0 3px 8px -2px rgba(74, 59, 54, 0.06);
+      --shadow-stacked: 0 1px 2px rgba(74, 59, 54, 0.06), 4px 4px 0 -1px var(--bg-linen), 4px 4px 0 0 var(--border-warm);
       --radius-card: 18px;
       --radius-pill: 9999px;
 
       /* Typography */
       --font-serif: 'Cormorant Garamond', Georgia, serif;
       --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-hand: 'Caveat', cursive, serif;
     }
 
     /* ==========================================================================
-       2. RESET & BASE STYLES
+       2. RESET, PAPER GRAIN OVERLAY & AMBIENT PETALS
        ========================================================================== */
     *, *::before, *::after {
       box-sizing: border-box;
@@ -76,14 +82,51 @@
       min-height: 100vh;
       overflow-x: hidden;
       position: relative;
-      /* Subtle scrapbook dot-grid & warm radial wash */
       background-color: var(--bg-cream);
       background-image: 
-        radial-gradient(circle at 15% 15%, var(--blue-mist) 0%, transparent 45%),
-        radial-gradient(circle at 85% 35%, rgba(245, 225, 223, 0.55) 0%, transparent 45%),
-        radial-gradient(circle at 50% 85%, var(--blue-mist) 0%, transparent 50%),
-        radial-gradient(rgba(117, 99, 88, 0.11) 1px, transparent 1px);
-      background-size: 100% 100%, 100% 100%, 100% 100%, 26px 26px;
+        radial-gradient(circle at 12% 14%, var(--blue-mist) 0%, transparent 45%),
+        radial-gradient(circle at 88% 32%, rgba(244, 225, 224, 0.6) 0%, transparent 45%),
+        radial-gradient(circle at 48% 84%, var(--blue-mist) 0%, transparent 50%),
+        radial-gradient(rgba(74, 59, 54, 0.09) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 100% 100%, 28px 28px;
+    }
+
+    /* Ultra-subtle tactile SVG paper grain overlay */
+    .paper-grain-overlay {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 90;
+      opacity: 0.032;
+      mix-blend-mode: multiply;
+    }
+
+    /* Ambient floating hydrangea petals / warm dust motes */
+    .ambient-motes {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .mote {
+      position: absolute;
+      border-radius: 50% 50% 50% 15%;
+      opacity: 0.35;
+      animation: driftMote 18s ease-in-out infinite alternate;
+    }
+
+    .mote:nth-child(1) { width: 10px; height: 10px; background: var(--blue-soft); top: 14%; left: 10%; animation-duration: 22s; }
+    .mote:nth-child(2) { width: 7px; height: 7px; background: var(--blush-soft); top: 38%; left: 85%; animation-duration: 19s; animation-delay: -4s; }
+    .mote:nth-child(3) { width: 12px; height: 12px; background: var(--blue-mid); opacity: 0.18; top: 68%; left: 15%; animation-duration: 25s; animation-delay: -8s; }
+    .mote:nth-child(4) { width: 8px; height: 8px; background: var(--rose-muted); opacity: 0.2; top: 82%; left: 80%; animation-duration: 21s; animation-delay: -2s; }
+
+    @keyframes driftMote {
+      0% { transform: translate(0, 0) rotate(0deg); }
+      100% { transform: translate(24px, -36px) rotate(45deg); }
     }
 
     img {
@@ -96,20 +139,19 @@
       cursor: pointer;
     }
 
-    /* Keyboard Focus Ring for Accessibility */
     :focus-visible {
-      outline: 3px solid var(--blue-primary);
+      outline: 2.5px solid var(--blue-primary);
       outline-offset: 3px;
     }
 
     /* ==========================================================================
-       3. TOP FLOATING MUSIC CONTROL & THEME SWITCHER
+       3. SPINNING VINYL MINI-PLAYER PILL
        ========================================================================== */
     .top-bar {
       position: fixed;
       top: 1rem;
       right: 1rem;
-      z-index: 40;
+      z-index: 50;
       display: flex;
       align-items: center;
       gap: 0.5rem;
@@ -118,14 +160,14 @@
     .music-btn {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.6rem;
       background: rgba(255, 253, 249, 0.92);
-      backdrop-filter: blur(8px);
+      backdrop-filter: blur(10px);
       color: var(--ink-brown);
       border: 1px solid var(--border-warm);
-      padding: 0.55rem 1rem;
+      padding: 0.4rem 0.95rem 0.4rem 0.45rem;
       border-radius: var(--radius-pill);
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       font-weight: 500;
       box-shadow: var(--shadow-soft);
       transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
@@ -138,22 +180,40 @@
     }
 
     .music-btn[aria-pressed="true"] {
-      background: var(--blue-soft);
+      background: var(--blue-mist);
       border-color: var(--blue-primary);
       color: var(--blue-deep);
     }
 
-    .music-dot {
-      width: 8px;
-      height: 8px;
+    /* Tiny Vinyl Record Disc */
+    .vinyl-disc {
+      width: 26px;
+      height: 26px;
       border-radius: 50%;
-      background-color: var(--ink-muted);
-      transition: background-color 0.3s ease;
+      background: radial-gradient(circle at center, var(--bg-paper) 0 18%, var(--blue-primary) 19% 36%, #2B333C 37% 100%);
+      border: 1px solid rgba(74, 59, 54, 0.2);
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.12);
     }
 
-    .music-btn[aria-pressed="true"] .music-dot {
-      background-color: var(--blue-primary);
-      box-shadow: 0 0 0 3px rgba(91, 130, 166, 0.25);
+    .vinyl-disc::after {
+      content: "";
+      position: absolute;
+      inset: 3px;
+      border-radius: 50%;
+      border: 1px dashed rgba(255, 255, 255, 0.22);
+    }
+
+    .music-btn[aria-pressed="true"] .vinyl-disc {
+      animation: spinVinyl 4s linear infinite;
+    }
+
+    @keyframes spinVinyl {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
     }
 
     /* ==========================================================================
@@ -164,26 +224,29 @@
       max-width: 880px;
       margin: 0 auto;
       padding: 0 1.25rem;
+      position: relative;
+      z-index: 2;
     }
 
     section {
-      padding: 4.5rem 0;
+      padding: 4.75rem 0;
       position: relative;
     }
 
     .section-header {
       text-align: center;
-      margin-bottom: 2.75rem;
+      margin-bottom: 3rem;
     }
 
     .section-tag {
       display: inline-block;
-      font-size: 0.78rem;
+      font-size: 0.75rem;
       text-transform: uppercase;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.16em;
       color: var(--blue-deep);
       background: var(--blue-soft);
-      padding: 0.3rem 0.9rem;
+      border: 1px solid rgba(91, 130, 166, 0.25);
+      padding: 0.3rem 0.95rem;
       border-radius: var(--radius-pill);
       margin-bottom: 0.75rem;
       font-weight: 600;
@@ -191,20 +254,19 @@
 
     .section-title {
       font-family: var(--font-serif);
-      font-size: clamp(2rem, 5vw, 2.75rem);
+      font-size: clamp(2.1rem, 5vw, 2.85rem);
       font-weight: 600;
       color: var(--ink-brown);
-      line-height: 1.2;
+      line-height: 1.18;
     }
 
     .section-subtitle {
       color: var(--ink-muted);
       font-size: 0.98rem;
-      max-width: 480px;
-      margin: 0.5rem auto 0;
+      max-width: 490px;
+      margin: 0.55rem auto 0;
     }
 
-    /* Botanical Divider */
     .botanical-divider {
       display: flex;
       align-items: center;
@@ -219,90 +281,101 @@
     .botanical-divider::after {
       content: "";
       height: 1px;
-      width: 50px;
+      width: 56px;
       background: linear-gradient(90deg, transparent, var(--border-warm), transparent);
     }
 
     /* ==========================================================================
-       5. SECTION A — BIRTHDAY WELCOME (HERO)
+       5. SECTION A — BIRTHDAY WELCOME (STACKED STATIONERY HERO)
        ========================================================================== */
     .hero-section {
       min-height: 94vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 3rem 1.25rem;
+      padding: 3.5rem 1.25rem;
+      position: relative;
+      z-index: 2;
     }
 
     .hero-card {
       position: relative;
       background: var(--bg-paper);
       border: 1px solid var(--border-warm);
-      border-radius: 24px;
-      padding: 3.25rem 1.75rem;
+      border-radius: 22px;
+      padding: 3.5rem 1.85rem 3.25rem;
       max-width: 560px;
       width: 100%;
       text-align: center;
-      box-shadow: var(--shadow-polaroid);
+      box-shadow: 
+        0 18px 40px -10px rgba(74, 59, 54, 0.12),
+        0 0 0 1px rgba(255, 253, 249, 0.8) inset,
+        6px 6px 0 -1px var(--bg-linen),
+        6px 6px 0 0 var(--border-warm);
     }
 
-    /* Decorative Inner Double Frame */
+    /* Embossed Inner Double Line */
     .hero-card::before {
       content: "";
       position: absolute;
-      inset: 10px;
-      border: 1px dashed rgba(91, 130, 166, 0.35);
-      border-radius: 16px;
+      inset: 11px;
+      border: 1px dashed rgba(91, 130, 166, 0.38);
+      border-radius: 14px;
       pointer-events: none;
     }
 
-    /* Scrapbook Washi Tape at top of Hero Card */
+    /* Realistic Translucent Blue Gingham Washi Tape with serrated edges */
     .washi-tape {
       position: absolute;
-      top: -13px;
+      top: -14px;
       left: 50%;
       transform: translateX(-50%) rotate(-1.5deg);
-      width: 130px;
-      height: 28px;
-      background-color: rgba(220, 231, 242, 0.88);
-      background-image: repeating-linear-gradient(
-        45deg,
-        transparent,
-        transparent 6px,
-        rgba(91, 130, 166, 0.12) 6px,
-        rgba(91, 130, 166, 0.12) 12px
+      width: 138px;
+      height: 30px;
+      background-color: rgba(220, 231, 242, 0.84);
+      background-image: 
+        linear-gradient(90deg, rgba(91, 130, 166, 0.14) 50%, transparent 50%),
+        linear-gradient(rgba(91, 130, 166, 0.14) 50%, transparent 50%);
+      background-size: 12px 12px;
+      backdrop-filter: blur(2px);
+      clip-path: polygon(
+        0% 8%, 4% 0%, 96% 0%, 100% 10%,
+        98% 30%, 100% 50%, 97% 70%, 100% 90%,
+        96% 100%, 3% 100%, 0% 88%, 2% 65%, 0% 42%, 3% 20%
       );
-      border-left: 1px dashed rgba(91, 130, 166, 0.3);
-      border-right: 1px dashed rgba(91, 130, 166, 0.3);
-      box-shadow: 0 2px 6px rgba(61, 49, 42, 0.06);
-      z-index: 2;
+      box-shadow: 0 3px 8px rgba(74, 59, 54, 0.08);
+      z-index: 3;
     }
 
     .hero-badge {
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
       color: var(--blue-deep);
       background: var(--blue-mist);
       border: 1px solid var(--blue-soft);
-      padding: 0.35rem 0.9rem;
+      padding: 0.35rem 0.95rem;
       border-radius: var(--radius-pill);
       margin-bottom: 1.25rem;
+      font-weight: 500;
     }
 
     .hero-title {
       font-family: var(--font-serif);
-      font-size: clamp(2.35rem, 7vw, 3.5rem);
+      font-size: clamp(2.45rem, 7vw, 3.6rem);
       font-weight: 600;
       color: var(--ink-brown);
-      line-height: 1.15;
+      line-height: 1.12;
       margin-bottom: 1rem;
     }
 
     .hero-title .her-name {
       color: var(--blue-deep);
       font-style: italic;
+      position: relative;
+      display: inline-block;
     }
 
     .hero-title .heart-accent {
@@ -311,9 +384,9 @@
     }
 
     .hero-subtitle {
-      font-size: clamp(1.02rem, 3vw, 1.15rem);
+      font-size: clamp(1.02rem, 3vw, 1.14rem);
       color: var(--ink-muted);
-      max-width: 380px;
+      max-width: 390px;
       margin: 0 auto 2.25rem;
     }
 
@@ -321,16 +394,16 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 0.6rem;
+      gap: 0.65rem;
       background-color: var(--blue-primary);
       color: #FFFFFF;
-      border: none;
-      padding: 0.95rem 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      padding: 0.95rem 2.1rem;
       border-radius: var(--radius-pill);
-      font-size: 1rem;
+      font-size: 0.98rem;
       font-weight: 500;
-      letter-spacing: 0.01em;
-      box-shadow: 0 6px 18px rgba(91, 130, 166, 0.28);
+      letter-spacing: 0.02em;
+      box-shadow: 0 8px 20px -4px rgba(91, 130, 166, 0.4);
       transition: background-color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
       text-decoration: none;
     }
@@ -338,7 +411,7 @@
     .primary-btn:hover {
       background-color: var(--blue-deep);
       transform: translateY(-2px);
-      box-shadow: 0 8px 22px rgba(62, 95, 126, 0.34);
+      box-shadow: 0 12px 24px -4px rgba(61, 90, 117, 0.45);
     }
 
     .primary-btn:active {
@@ -351,93 +424,150 @@
     }
 
     /* ==========================================================================
-       6. SECTION B — OUR LITTLE MEMORIES (POLAROID GALLERY)
+       6. SECTION B — INTERACTIVE 3D FLIP-TO-READ POLAROID GALLERY
        ========================================================================== */
     .polaroid-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 2.25rem;
+      gap: 2.5rem;
       margin-top: 1.5rem;
     }
 
     @media (min-width: 640px) {
       .polaroid-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 2.5rem 2rem;
+        gap: 2.75rem 2.25rem;
       }
     }
 
-    .polaroid-card {
+    /* 3D Perspective Wrapper */
+    .polaroid-scene {
+      perspective: 1200px;
       position: relative;
-      background: var(--bg-paper);
-      padding: 0.9rem 0.9rem 1.35rem 0.9rem;
-      border-radius: 12px;
-      border: 1px solid var(--border-warm);
-      box-shadow: var(--shadow-polaroid);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-      text-align: left;
       width: 100%;
     }
 
-    /* Gentle Scrapbook Tilts on Desktop & Mobile */
-    .polaroid-card:nth-child(odd) {
-      transform: rotate(-1.4deg);
+    .polaroid-scene:nth-child(odd) {
+      transform: rotate(-1.3deg);
     }
-    .polaroid-card:nth-child(even) {
-      transform: rotate(1.4deg);
+    .polaroid-scene:nth-child(even) {
+      transform: rotate(1.3deg);
     }
 
-    .polaroid-card:hover,
-    .polaroid-card:focus-visible {
+    .polaroid-scene:hover,
+    .polaroid-scene:focus-within {
       transform: rotate(0deg) translateY(-4px);
-      box-shadow: 0 16px 34px -4px rgba(61, 49, 42, 0.15);
+      transition: transform 0.35s ease;
     }
 
-    /* Washi tape on each Polaroid */
+    /* Realistic Translucent Washi Tape & Metallic Paperclip on Polaroids */
     .polaroid-tape {
       position: absolute;
-      top: -11px;
+      top: -12px;
       left: 50%;
       transform: translateX(-50%) rotate(2deg);
-      width: 92px;
-      height: 24px;
-      background: rgba(220, 231, 242, 0.85);
-      border-left: 1px dashed rgba(91, 130, 166, 0.35);
-      border-right: 1px dashed rgba(91, 130, 166, 0.35);
-      z-index: 3;
+      width: 102px;
+      height: 25px;
+      background-color: rgba(220, 231, 242, 0.82);
+      background-image: 
+        linear-gradient(90deg, rgba(91, 130, 166, 0.14) 50%, transparent 50%),
+        linear-gradient(rgba(91, 130, 166, 0.14) 50%, transparent 50%);
+      background-size: 10px 10px;
+      clip-path: polygon(2% 0%, 98% 0%, 100% 25%, 97% 50%, 100% 75%, 98% 100%, 2% 100%, 0% 75%, 3% 50%, 0% 25%);
+      box-shadow: 0 2px 6px rgba(74, 59, 54, 0.08);
+      z-index: 5;
       pointer-events: none;
     }
 
-    .polaroid-card:nth-child(even) .polaroid-tape {
-      background: rgba(245, 225, 223, 0.85);
-      border-color: rgba(200, 138, 136, 0.35);
+    .polaroid-scene:nth-child(even) .polaroid-tape {
+      background-color: rgba(244, 225, 224, 0.85);
+      background-image: radial-gradient(rgba(200, 138, 139, 0.25) 1.5px, transparent 1.5px);
+      background-size: 9px 9px;
       transform: translateX(-50%) rotate(-2deg);
+    }
+
+    /* Metallic Brass Paperclip SVG on top-right corner */
+    .paperclip-ornament {
+      position: absolute;
+      top: -10px;
+      right: 18px;
+      z-index: 6;
+      pointer-events: none;
+      color: var(--gold-brass);
+      filter: drop-shadow(0 2px 3px rgba(74, 59, 54, 0.18));
+    }
+
+    /* 3D Flipper Container */
+    .polaroid-flipper {
+      position: relative;
+      width: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.72s cubic-bezier(0.22, 1, 0.36, 1);
+      border-radius: 12px;
+      box-shadow: var(--shadow-polaroid);
+    }
+
+    .polaroid-scene.is-flipped .polaroid-flipper {
+      transform: rotateY(180deg);
+    }
+
+    .polaroid-front,
+    .polaroid-back {
+      width: 100%;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border-radius: 12px;
+      background: var(--bg-paper);
+      border: 1px solid var(--border-warm);
+    }
+
+    .polaroid-front {
+      padding: 0.9rem 0.9rem 1.25rem 0.9rem;
+      cursor: pointer;
+    }
+
+    .polaroid-back {
+      position: absolute;
+      inset: 0;
+      transform: rotateY(180deg);
+      padding: 1.5rem 1.35rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background-color: #FCF8F2;
+      background-image: 
+        repeating-linear-gradient(
+          to bottom,
+          transparent 0px,
+          transparent 27px,
+          rgba(91, 130, 166, 0.11) 27px,
+          rgba(91, 130, 166, 0.11) 28px
+        );
     }
 
     .polaroid-frame {
       position: relative;
       width: 100%;
-      aspect-ratio: 4 / 3.6;
+      aspect-ratio: 4 / 3.5;
       background-color: var(--bg-linen);
       border-radius: 6px;
       overflow: hidden;
-      margin-bottom: 1rem;
-      border: 1px solid rgba(228, 217, 200, 0.6);
+      margin-bottom: 0.95rem;
+      border: 1px solid rgba(228, 216, 200, 0.75);
     }
 
     .polaroid-img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.4s ease;
+      transition: transform 0.45s ease;
     }
 
-    .polaroid-card:hover .polaroid-img {
+    .polaroid-front:hover .polaroid-img {
       transform: scale(1.03);
     }
 
-    /* Fallback Illustrated Scrapbook Card if user hasn't added local photo yet */
+    /* Illustrated Fallback when local image isn't placed yet */
     .polaroid-fallback {
       position: absolute;
       inset: 0;
@@ -452,10 +582,10 @@
     }
 
     .polaroid-fallback svg {
-      width: 48px;
-      height: 48px;
+      width: 46px;
+      height: 46px;
       color: var(--blue-primary);
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.55rem;
       opacity: 0.9;
     }
 
@@ -467,9 +597,9 @@
     }
 
     .fallback-path {
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       color: var(--ink-muted);
-      background: rgba(255, 253, 249, 0.75);
+      background: rgba(255, 253, 249, 0.8);
       padding: 0.2rem 0.55rem;
       border-radius: 99px;
       margin-top: 0.4rem;
@@ -486,93 +616,204 @@
 
     .polaroid-caption {
       font-family: var(--font-serif);
-      font-size: 1.2rem;
+      font-size: 1.25rem;
       font-weight: 600;
       color: var(--ink-brown);
     }
 
     .polaroid-date {
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       color: var(--blue-deep);
-      font-weight: 500;
+      font-weight: 600;
       white-space: nowrap;
     }
 
     .polaroid-note {
       font-size: 0.88rem;
       color: var(--ink-muted);
-      margin-top: 0.25rem;
+      margin-top: 0.2rem;
       padding: 0 0.25rem;
     }
 
+    .polaroid-flip-hint {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      margin-top: 0.65rem;
+      padding: 0 0.25rem;
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: var(--blue-primary);
+      letter-spacing: 0.03em;
+    }
+
+    /* Back-of-the-Photo Postcard Styling */
+    .back-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 1px dashed var(--border-warm);
+      padding-bottom: 0.6rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .back-stamp {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--blue-deep);
+      background: var(--blue-mist);
+      border: 1px solid var(--blue-soft);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    .back-handwritten {
+      font-family: var(--font-hand);
+      font-size: clamp(1.32rem, 2.8vw, 1.5rem);
+      line-height: 1.45;
+      color: var(--ink-pen);
+      margin: auto 0;
+      padding: 0.25rem 0;
+    }
+
+    .back-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      padding-top: 0.75rem;
+      border-top: 1px dashed var(--border-warm);
+    }
+
+    .mini-action-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: var(--bg-paper);
+      color: var(--ink-brown);
+      border: 1px solid var(--border-warm);
+      padding: 0.4rem 0.8rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.78rem;
+      font-weight: 500;
+      transition: background-color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .mini-action-btn:hover {
+      background: var(--blue-mist);
+      border-color: var(--blue-primary);
+      color: var(--blue-deep);
+    }
+
     /* ==========================================================================
-       7. SECTION C — A LETTER FOR YOU (HANDWRITTEN-INSPIRED STATIONERY)
+       7. SECTION C — FOUNTAIN-PEN LETTER ON ARTISAN STATIONERY
        ========================================================================== */
     .letter-wrapper {
-      max-width: 650px;
+      max-width: 660px;
       margin: 0 auto;
+    }
+
+    .letter-toolbar {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 0.75rem;
+    }
+
+    .ink-write-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: var(--bg-paper);
+      color: var(--blue-deep);
+      border: 1px solid var(--border-warm);
+      padding: 0.45rem 0.95rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.8rem;
+      font-weight: 500;
+      box-shadow: var(--shadow-soft);
+      transition: all 0.2s ease;
+    }
+
+    .ink-write-btn:hover {
+      border-color: var(--blue-primary);
+      background: var(--blue-mist);
     }
 
     .letter-card {
       position: relative;
       background-color: var(--bg-paper);
-      /* Subtle stationery horizontal rules */
       background-image: repeating-linear-gradient(
         to bottom,
         transparent 0px,
-        transparent 31px,
-        rgba(91, 130, 166, 0.12) 31px,
-        rgba(91, 130, 166, 0.12) 32px
+        transparent 33px,
+        rgba(91, 130, 166, 0.12) 33px,
+        rgba(91, 130, 166, 0.12) 34px
       );
       border: 1px solid var(--border-warm);
       border-radius: var(--radius-card);
-      padding: 2.75rem 1.75rem 2.5rem;
-      box-shadow: var(--shadow-polaroid);
+      padding: 3rem 1.75rem 2.75rem;
+      box-shadow: 
+        var(--shadow-polaroid),
+        5px 5px 0 -1px var(--bg-linen),
+        5px 5px 0 0 var(--border-warm);
     }
 
     @media (min-width: 640px) {
       .letter-card {
-        padding: 3.5rem 3.25rem 3rem;
+        padding: 3.75rem 3.35rem 3.25rem;
       }
     }
 
-    /* Pressed blue flower stamp in top-right corner of letter */
+    /* Pressed Hydrangea Postage Stamp in top-right corner */
     .letter-stamp {
       position: absolute;
-      top: 1.25rem;
-      right: 1.25rem;
-      width: 54px;
-      height: 64px;
+      top: 1.35rem;
+      right: 1.35rem;
+      width: 56px;
+      height: 66px;
       background: var(--blue-mist);
       border: 2px dotted var(--blue-primary);
       border-radius: 6px;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      transform: rotate(4deg);
+      transform: rotate(3.5deg);
       color: var(--blue-primary);
-      box-shadow: 0 2px 6px rgba(61, 49, 42, 0.06);
+      box-shadow: 0 3px 8px rgba(74, 59, 54, 0.07);
+    }
+
+    .letter-stamp span {
+      font-size: 0.55rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 2px;
+      color: var(--blue-deep);
+      font-weight: 600;
     }
 
     .letter-greeting {
       font-family: var(--font-serif);
-      font-size: 1.75rem;
+      font-size: 1.85rem;
       font-style: italic;
       font-weight: 600;
       color: var(--blue-deep);
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.35rem;
     }
 
     .letter-body p {
       font-family: var(--font-serif);
-      font-size: clamp(1.18rem, 2.5vw, 1.32rem);
-      line-height: 1.75;
+      font-size: clamp(1.2rem, 2.5vw, 1.35rem);
+      line-height: 1.78;
       color: var(--ink-brown);
       margin-bottom: 1.25rem;
+      transition: opacity 0.4s ease;
     }
 
     .letter-signoff {
-      margin-top: 2rem;
+      margin-top: 2.25rem;
       text-align: right;
       font-family: var(--font-serif);
       font-size: 1.35rem;
@@ -582,31 +823,147 @@
 
     .letter-signature {
       display: block;
-      font-size: 1.6rem;
+      font-family: var(--font-hand);
+      font-size: 2rem;
+      font-style: normal;
       font-weight: 600;
-      color: var(--ink-brown);
-      margin-top: 0.25rem;
+      color: var(--ink-pen);
+      margin-top: 0.15rem;
     }
 
     /* ==========================================================================
-       8. SECTION D — A LITTLE SURPRISE (ENVELOPE & WAX SEAL)
+       8. SECTION D — MAKE A BIRTHDAY WISH CANDLE + WAX-SEALED SURPRISE
        ========================================================================== */
-    .surprise-container {
-      max-width: 540px;
+    .surprise-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      max-width: 560px;
       margin: 0 auto;
+    }
+
+    /* Mini Interactive Birthday Candle Card */
+    .wish-card {
+      background: var(--bg-paper);
+      border: 1px solid var(--border-warm);
+      border-radius: 20px;
+      padding: 2.25rem 1.5rem;
       text-align: center;
+      box-shadow: var(--shadow-polaroid);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .candle-stage {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: none;
+      border: none;
+      padding: 0.5rem 1.5rem;
+      margin-bottom: 0.5rem;
       position: relative;
     }
 
+    /* Glowing Flame SVG & Pulse */
+    .flame-group {
+      transform-origin: 50% 90%;
+      animation: flickerFlame 2.2s ease-in-out infinite alternate;
+      transition: opacity 0.35s ease, transform 0.35s ease;
+      cursor: pointer;
+    }
+
+    .wish-card.is-blown .flame-group {
+      opacity: 0;
+      transform: scale(0.2) translateY(-10px);
+      pointer-events: none;
+    }
+
+    /* Soft Smoke Wisp when blown out */
+    .smoke-wisp {
+      opacity: 0;
+      stroke-dasharray: 40;
+      stroke-dashoffset: 40;
+      transition: opacity 0.4s ease;
+    }
+
+    .wish-card.is-blown .smoke-wisp {
+      opacity: 0.7;
+      animation: riseSmoke 1.8s ease-out forwards;
+    }
+
+    @keyframes flickerFlame {
+      0% { transform: scale(1) rotate(-1.5deg); filter: drop-shadow(0 0 8px rgba(245, 176, 65, 0.65)); }
+      50% { transform: scale(1.05, 0.96) rotate(1.5deg); filter: drop-shadow(0 0 14px rgba(245, 176, 65, 0.85)); }
+      100% { transform: scale(0.97, 1.04) rotate(-1deg); filter: drop-shadow(0 0 10px rgba(245, 176, 65, 0.7)); }
+    }
+
+    @keyframes riseSmoke {
+      0% { stroke-dashoffset: 40; transform: translateY(0); opacity: 0.75; }
+      100% { stroke-dashoffset: 0; transform: translateY(-14px); opacity: 0; }
+    }
+
+    .wish-title {
+      font-family: var(--font-serif);
+      font-size: 1.55rem;
+      font-weight: 600;
+      color: var(--ink-brown);
+      margin-bottom: 0.35rem;
+    }
+
+    .wish-status {
+      font-size: 0.92rem;
+      color: var(--ink-muted);
+      max-width: 380px;
+      margin: 0 auto;
+    }
+
+    .wish-card.is-blown .wish-status {
+      color: var(--blue-deep);
+      font-weight: 500;
+    }
+
+    .relight-btn {
+      margin-top: 0.9rem;
+      display: none;
+      background: var(--blue-mist);
+      color: var(--blue-deep);
+      border: 1px solid var(--blue-soft);
+      padding: 0.35rem 0.9rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.78rem;
+      font-weight: 500;
+    }
+
+    .wish-card.is-blown .relight-btn {
+      display: inline-block;
+    }
+
+    /* Wax-Sealed Envelope Card */
     .envelope-card {
       position: relative;
-      background: linear-gradient(180deg, var(--blue-soft) 0%, #CFE0EE 100%);
-      border: 1px solid rgba(91, 130, 166, 0.35);
+      background: linear-gradient(165deg, var(--blue-soft) 0%, #CEDFEF 100%);
+      border: 1px solid rgba(91, 130, 166, 0.38);
       border-radius: 20px;
       padding: 2.5rem 1.5rem;
       box-shadow: var(--shadow-polaroid);
       overflow: hidden;
+      text-align: center;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    /* Subtle Envelope Flap Lines */
+    .envelope-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 110px;
+      background: linear-gradient(180deg, rgba(255, 253, 249, 0.38) 0%, transparent 100%);
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
+      pointer-events: none;
     }
 
     .envelope-trigger {
@@ -619,33 +976,42 @@
       justify-content: center;
       color: var(--ink-brown);
       padding: 0.5rem;
+      position: relative;
+      z-index: 2;
     }
 
-    /* Wax Seal Button */
+    /* 3D Embossed Rose & Gold Wax Seal */
     .wax-seal {
-      width: 74px;
-      height: 74px;
+      width: 78px;
+      height: 78px;
       border-radius: 50%;
-      background: radial-gradient(circle at 30% 30%, #D99B99, var(--rose-muted) 65%, var(--rose-deep) 100%);
-      border: 3px solid rgba(255, 253, 249, 0.65);
-      box-shadow: 0 6px 16px rgba(166, 103, 101, 0.35), inset 0 2px 5px rgba(255, 255, 255, 0.35);
+      background: radial-gradient(circle at 32% 28%, #DFA3A4, var(--rose-muted) 62%, var(--rose-deep) 100%);
+      border: 3px solid rgba(255, 253, 249, 0.7);
+      box-shadow: 
+        0 8px 18px rgba(158, 99, 100, 0.38),
+        inset 0 2px 6px rgba(255, 255, 255, 0.4),
+        inset 0 -3px 6px rgba(90, 45, 46, 0.35);
       display: flex;
       align-items: center;
       justify-content: center;
       color: #FFFDF9;
       margin-bottom: 1.15rem;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
     }
 
     .envelope-trigger:hover .wax-seal,
     .envelope-trigger:focus-visible .wax-seal {
-      transform: scale(1.07) rotate(-4deg);
-      box-shadow: 0 8px 22px rgba(166, 103, 101, 0.45);
+      transform: scale(1.08) rotate(-5deg);
+      box-shadow: 0 10px 24px rgba(158, 99, 100, 0.48);
+    }
+
+    .envelope-trigger[aria-expanded="true"] .wax-seal {
+      transform: scale(0.92) rotate(12deg);
     }
 
     .envelope-prompt {
       font-family: var(--font-serif);
-      font-size: 1.5rem;
+      font-size: 1.55rem;
       font-weight: 600;
       color: var(--ink-brown);
     }
@@ -653,70 +1019,131 @@
     .envelope-subprompt {
       font-size: 0.88rem;
       color: var(--blue-deep);
-      margin-top: 0.3rem;
+      margin-top: 0.25rem;
     }
 
-    /* Revealed Surprise Content */
+    /* Perforated Tear-Off Birthday Date Voucher inside Envelope */
     .surprise-reveal {
       display: none;
       background: var(--bg-paper);
       border: 1px solid var(--border-warm);
       border-radius: 14px;
-      padding: 2rem 1.5rem;
-      margin-top: 1.25rem;
+      margin-top: 1.35rem;
       text-align: center;
       box-shadow: var(--shadow-soft);
+      overflow: hidden;
       animation: gentleFadeIn 0.45s ease forwards;
+      position: relative;
+      z-index: 2;
     }
 
     .surprise-reveal.is-open {
       display: block;
     }
 
+    .voucher-top {
+      padding: 1.85rem 1.5rem 1.4rem;
+    }
+
+    /* Perforated Tear-Off Line with Side Notches */
+    .voucher-perforation {
+      position: relative;
+      border-top: 2px dashed var(--border-warm);
+      margin: 0 1rem;
+    }
+
+    .voucher-perforation::before,
+    .voucher-perforation::after {
+      content: "";
+      position: absolute;
+      top: -10px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #D3E2F0;
+      border: 1px solid rgba(91, 130, 166, 0.3);
+    }
+
+    .voucher-perforation::before { left: -26px; }
+    .voucher-perforation::after { right: -26px; }
+
+    .voucher-stub {
+      padding: 1rem 1.5rem 1.35rem;
+      background: var(--bg-cream);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
     .surprise-voucher-badge {
       display: inline-block;
       background: var(--blush-soft);
       color: var(--rose-deep);
-      font-size: 0.76rem;
+      font-size: 0.74rem;
       font-weight: 600;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      padding: 0.3rem 0.85rem;
+      padding: 0.3rem 0.9rem;
       border-radius: var(--radius-pill);
-      margin-bottom: 0.85rem;
+      margin-bottom: 0.8rem;
     }
 
     .surprise-title {
       font-family: var(--font-serif);
-      font-size: 1.75rem;
+      font-size: 1.8rem;
       color: var(--blue-deep);
-      margin-bottom: 0.65rem;
+      margin-bottom: 0.55rem;
     }
 
     .surprise-text {
       color: var(--ink-brown);
-      font-size: 1rem;
+      font-size: 0.98rem;
       max-width: 420px;
-      margin: 0 auto 1rem;
+      margin: 0 auto;
     }
 
     .surprise-fineprint {
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-style: italic;
       color: var(--ink-muted);
     }
 
-    /* Floating Heart Particles Container (Restrained & Reduced-Motion Aware) */
+    .claim-voucher-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: var(--blue-primary);
+      color: #FFFFFF;
+      border: none;
+      padding: 0.55rem 1.35rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .claim-voucher-btn:hover {
+      background: var(--blue-deep);
+      transform: translateY(-1px);
+    }
+
+    .claim-voucher-btn.is-claimed {
+      background: #4E7D63;
+    }
+
+    /* Floating Heart Particles Container */
     .hearts-burst {
       position: absolute;
       inset: 0;
       pointer-events: none;
       overflow: hidden;
+      z-index: 3;
     }
 
     .floating-heart {
       position: absolute;
-      bottom: 30%;
+      bottom: 28%;
       font-size: 1.25rem;
       opacity: 0;
       animation: floatUpHeart 1.8s ease-out forwards;
@@ -727,9 +1154,11 @@
        ========================================================================== */
     .closing-section {
       text-align: center;
-      padding: 4rem 1.25rem 5.5rem;
-      border-top: 1px solid rgba(228, 217, 200, 0.7);
-      background: linear-gradient(180deg, transparent 0%, rgba(220, 231, 242, 0.35) 100%);
+      padding: 4.25rem 1.25rem 5.5rem;
+      border-top: 1px solid rgba(228, 216, 200, 0.75);
+      background: linear-gradient(180deg, transparent 0%, rgba(220, 231, 242, 0.38) 100%);
+      position: relative;
+      z-index: 2;
     }
 
     .closing-heart {
@@ -748,7 +1177,7 @@
 
     .closing-title {
       font-family: var(--font-serif);
-      font-size: clamp(2rem, 5vw, 2.6rem);
+      font-size: clamp(2rem, 5vw, 2.65rem);
       font-weight: 600;
       color: var(--ink-brown);
       margin-bottom: 0.6rem;
@@ -762,10 +1191,11 @@
     }
 
     .closing-date {
-      font-size: 0.8rem;
-      letter-spacing: 0.12em;
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--blue-deep);
+      font-weight: 600;
     }
 
     /* ==========================================================================
@@ -775,7 +1205,7 @@
       position: fixed;
       inset: 0;
       z-index: 100;
-      background: rgba(61, 49, 42, 0.72);
+      background: rgba(74, 59, 54, 0.74);
       backdrop-filter: blur(5px);
       display: none;
       align-items: center;
@@ -810,7 +1240,7 @@
       background: var(--bg-paper);
       border: 1px solid var(--border-warm);
       color: var(--ink-brown);
-      font-size: 1.2rem;
+      font-size: 1.15rem;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -846,40 +1276,26 @@
     }
 
     .lightbox-note {
-      font-size: 0.95rem;
-      color: var(--ink-muted);
-      margin-top: 0.3rem;
+      font-family: var(--font-hand);
+      font-size: 1.35rem;
+      color: var(--ink-pen);
+      margin-top: 0.35rem;
     }
 
     /* ==========================================================================
        11. ANIMATIONS & REDUCED MOTION ACCESSIBILITY
        ========================================================================== */
     @keyframes gentleFadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(8px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     @keyframes floatUpHeart {
-      0% {
-        opacity: 0;
-        transform: translateY(0) scale(0.8);
-      }
-      25% {
-        opacity: 0.95;
-      }
-      100% {
-        opacity: 0;
-        transform: translateY(-110px) scale(1.15);
-      }
+      0% { opacity: 0; transform: translateY(0) scale(0.8); }
+      25% { opacity: 0.95; }
+      100% { opacity: 0; transform: translateY(-115px) scale(1.15); }
     }
 
-    /* Scroll reveal utility — remains visible if JS is disabled! */
     .js-enabled .reveal-on-scroll {
       opacity: 0;
       transform: translateY(16px);
@@ -892,12 +1308,8 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-      *,
-      *::before,
-      *::after {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
@@ -906,17 +1318,34 @@
         opacity: 1 !important;
         transform: none !important;
       }
+      .ambient-motes { display: none; }
     }
   </style>
 </head>
 <body>
 
+  <!-- Subtle Tactile SVG Paper Noise Overlay -->
+  <svg class="paper-grain-overlay" aria-hidden="true">
+    <filter id="paper-noise-filter">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch" />
+    </filter>
+    <rect width="100%" height="100%" filter="url(#paper-noise-filter)" />
+  </svg>
+
+  <!-- Barely-there Ambient Hydrangea Petals / Dust Motes -->
+  <div class="ambient-motes" aria-hidden="true">
+    <span class="mote"></span>
+    <span class="mote"></span>
+    <span class="mote"></span>
+    <span class="mote"></span>
+  </div>
+
   <!-- ========================================================================
-       OPTIONAL MUSIC CONTROLLER (Never autoplays; uses local MP3 or soft music-box melody)
+       SPINNING VINYL MINI-PLAYER PILL (Never autoplays)
        ======================================================================== -->
   <div class="top-bar">
     <!-- EDIT HERE: Put an MP3 file in assets/song.mp3 if you want a custom song -->
-    <audio id="bg-music" src="assets/song.mp3" preload="auto" loop></audio>
+    <audio id="bg-music" src="assets/song.mp3" preload="none" loop></audio>
     <button
       type="button"
       id="music-toggle"
@@ -924,7 +1353,7 @@
       aria-pressed="false"
       aria-label="Play gentle birthday melody"
     >
-      <span class="music-dot" aria-hidden="true"></span>
+      <span class="vinyl-disc" aria-hidden="true"></span>
       <span id="music-label">Play melody ♪</span>
     </button>
   </div>
@@ -938,26 +1367,26 @@
 
       <!-- Delicate Botanical Forget-Me-Not Blue Flower SVG -->
       <div class="corner-floral" aria-hidden="true">
-        <svg width="42" height="42" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="44" height="44" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="24" cy="14" r="6" fill="#DCE7F2" stroke="#5B82A6" stroke-width="1.5"/>
           <circle cx="33" cy="21" r="6" fill="#DCE7F2" stroke="#5B82A6" stroke-width="1.5"/>
           <circle cx="30" cy="32" r="6" fill="#DCE7F2" stroke="#5B82A6" stroke-width="1.5"/>
           <circle cx="18" cy="32" r="6" fill="#DCE7F2" stroke="#5B82A6" stroke-width="1.5"/>
           <circle cx="15" cy="21" r="6" fill="#DCE7F2" stroke="#5B82A6" stroke-width="1.5"/>
-          <circle cx="24" cy="24" r="4.5" fill="#F5E1DF" stroke="#C88A88" stroke-width="1.5"/>
+          <circle cx="24" cy="24" r="4.5" fill="#F4E1E0" stroke="#C88A8B" stroke-width="1.5"/>
         </svg>
       </div>
 
-      <span class="hero-badge" id="hero-date-badge">Celebrating You Today</span>
+      <span class="hero-badge" id="hero-date-badge">Celebrating You Today • ♡</span>
 
-      <!-- EDIT HER NAME BELOW (or inside the CONFIG object in script.js) -->
+      <!-- EDIT HER NAME BELOW (or inside BIRTHDAY_CONFIG in script) -->
       <h1 class="hero-title">
-        Happy Birthday, <span class="her-name" id="her-name-heading">Constance</span>
+        Happy Birthday, <span class="her-name" id="her-name-heading">Sophie</span>
         <span class="heart-accent" aria-hidden="true">♡</span>
       </h1>
 
       <p class="hero-subtitle" id="hero-subtitle-text">
-        I know exams have been really stressful but here's something from me!
+        A little something made just for you.
       </p>
 
       <a href="#memories" class="primary-btn" id="open-surprise-btn">
@@ -971,102 +1400,185 @@
 
   <main id="main-content">
     <!-- ======================================================================
-         SECTION B — OUR LITTLE MEMORIES (SCRAPBOOK POLAROID GALLERY)
+         SECTION B — OUR LITTLE MEMORIES (3D FLIP-TO-READ POLAROID GALLERY)
          ====================================================================== -->
     <section id="memories" aria-labelledby="memories-heading">
       <div class="container">
         <div class="section-header reveal-on-scroll">
           <span class="section-tag">Chapter One</span>
-          <h2 class="section-title" id="memories-heading">Memories So Far</h2>
+          <h2 class="section-title" id="memories-heading">Our Little Memories</h2>
           <p class="section-subtitle">
-            A few of my favourite moments with you. Tap any Polaroid to take a closer look.
+            Tap any Polaroid to flip it over and read the handwritten note on the back.
           </p>
           <div class="botanical-divider" aria-hidden="true">
             <span>✿</span>
           </div>
         </div>
 
-        <!-- 
-          HOW TO REPLACE PHOTOS:
-          Put your photos in the "assets/" folder named photo1.jpg, photo2.jpg, photo3.jpg, photo4.jpg
-          OR edit the filenames in the CONFIG block at the bottom of this file.
-          If a photo isn't found yet, a pretty illustrated blue & blush scrapbook card is shown automatically!
-        -->
         <div class="polaroid-grid" id="gallery-grid">
-          <!-- Polaroids are populated and enhanced by JS, with static HTML fallback below if JS is disabled -->
-          <button type="button" class="polaroid-card reveal-on-scroll" data-index="0">
+          <!-- Polaroid 1 -->
+          <div class="polaroid-scene reveal-on-scroll" data-index="0">
             <span class="polaroid-tape" aria-hidden="true"></span>
-            <div class="polaroid-frame">
-              <img src="assets/photo1.jpg" alt="Coffee date together" class="polaroid-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-              <div class="polaroid-fallback" style="display: none;">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                <span class="fallback-label">Our Coffee Date</span>
-                <span class="fallback-path">Replace: assets/photo1.jpg</span>
+            <span class="paperclip-ornament" aria-hidden="true">
+              <svg width="18" height="36" viewBox="0 0 24 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+                <path d="M6 14V34C6 39.5 10.5 44 16 44C21.5 44 22 39.5 22 34V10C22 6.5 19.5 4 16 4C12.5 4 10 6.5 10 10V32C10 34.2 11.8 36 14 36C16.2 36 18 34.2 18 32V14"/>
+              </svg>
+            </span>
+            <div class="polaroid-flipper">
+              <div class="polaroid-front" role="button" tabindex="0" aria-label="Flip Our Coffee Date Polaroid to read back note">
+                <div class="polaroid-frame">
+                  <img src="assets/photo1.jpg" alt="Coffee date together" class="polaroid-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                  <div class="polaroid-fallback" style="display: none;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                    <span class="fallback-label">Our Coffee Date</span>
+                    <span class="fallback-path">Replace: assets/photo1.jpg</span>
+                  </div>
+                </div>
+                <div class="polaroid-caption-row">
+                  <span class="polaroid-caption">Our Coffee Date</span>
+                  <span class="polaroid-date">Memory #1</span>
+                </div>
+                <p class="polaroid-note">I still remember how much we laughed that afternoon.</p>
+                <span class="polaroid-flip-hint">↻ Tap to read the back</span>
               </div>
-            </div>
-            <div class="polaroid-caption-row">
-              <span class="polaroid-caption">The Beginning(Kinda)</span>
-              <span class="polaroid-date">Memory #1</span>
-            </div>
-            <p class="polaroid-note">Going farrr back to the Year 7 Era!!</p>
-          </button>
 
-          <button type="button" class="polaroid-card reveal-on-scroll" data-index="1">
-            <span class="polaroid-tape" aria-hidden="true"></span>
-            <div class="polaroid-frame">
-              <img src="assets/photo2.jpg" alt="Golden hour walk" class="polaroid-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-              <div class="polaroid-fallback" style="display: none;">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-                <span class="fallback-label">Golden Hour Walk</span>
-                <span class="fallback-path">Replace: assets/photo2.jpg</span>
+              <div class="polaroid-back">
+                <div class="back-header">
+                  <span class="back-stamp">Corner Café • Rainy Afternoon</span>
+                  <span aria-hidden="true">♡</span>
+                </div>
+                <p class="back-handwritten">
+                  "You ordered your favourite drink and talked with your eyes sparkling the whole time. That was the exact moment I knew I could listen to you forever."
+                </p>
+                <div class="back-actions">
+                  <button type="button" class="mini-action-btn flip-back-btn">↺ Flip back</button>
+                  <button type="button" class="mini-action-btn zoom-photo-btn">⤢ Enlarge photo</button>
+                </div>
               </div>
             </div>
-            <div class="polaroid-caption-row">
-              <span class="polaroid-caption">The Night I Made You Mine!</span>
-              <span class="polaroid-date">Memory #2</span>
-            </div>
-            <p class="polaroid-note">You don't know how long I wanted to say those words to you hehehe</p>
-          </button>
+          </div>
 
-          <button type="button" class="polaroid-card reveal-on-scroll" data-index="2">
+          <!-- Polaroid 2 -->
+          <div class="polaroid-scene reveal-on-scroll" data-index="1">
             <span class="polaroid-tape" aria-hidden="true"></span>
-            <div class="polaroid-frame">
-              <img src="assets/photo3.jpg" alt="Late night study break" class="polaroid-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-              <div class="polaroid-fallback" style="display: none;">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-                <span class="fallback-label">Study Break Snacks</span>
-                <span class="fallback-path">Replace: assets/photo3.jpg</span>
+            <div class="polaroid-flipper">
+              <div class="polaroid-front" role="button" tabindex="0" aria-label="Flip Golden Hour Walk Polaroid to read back note">
+                <div class="polaroid-frame">
+                  <img src="assets/photo2.jpg" alt="Golden hour walk" class="polaroid-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                  <div class="polaroid-fallback" style="display: none;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                    <span class="fallback-label">Golden Hour Walk</span>
+                    <span class="fallback-path">Replace: assets/photo2.jpg</span>
+                  </div>
+                </div>
+                <div class="polaroid-caption-row">
+                  <span class="polaroid-caption">Golden Hour Walk</span>
+                  <span class="polaroid-date">Memory #2</span>
+                </div>
+                <p class="polaroid-note">Every walk feels ten times better with your hand in mine.</p>
+                <span class="polaroid-flip-hint">↻ Tap to read the back</span>
               </div>
-            </div>
-            <div class="polaroid-caption-row">
-              <span class="polaroid-caption">Our last hangout?</span>
-              <span class="polaroid-date">Memory #3</span>
-            </div>
-            <p class="polaroid-note">Thanks for always inviting me yay!!!!!!</p>
-          </button>
 
-          <button type="button" class="polaroid-card reveal-on-scroll" data-index="3">
-            <span class="polaroid-tape" aria-hidden="true"></span>
-            <div class="polaroid-frame">
-              <img src="assets/photo4.jpg" alt="My favourite smile" class="polaroid-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-              <div class="polaroid-fallback" style="display: none;">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                <span class="fallback-label">My Favourite Girl</span>
-                <span class="fallback-path">Replace: assets/photo4.jpg</span>
+              <div class="polaroid-back">
+                <div class="back-header">
+                  <span class="back-stamp">Sunset Stroll • 6:15 PM</span>
+                  <span aria-hidden="true">✿</span>
+                </div>
+                <p class="back-handwritten">
+                  "We didn't even have a destination in mind, just walking side by side while the sky turned pastel blue and pink."
+                </p>
+                <div class="back-actions">
+                  <button type="button" class="mini-action-btn flip-back-btn">↺ Flip back</button>
+                  <button type="button" class="mini-action-btn zoom-photo-btn">⤢ Enlarge photo</button>
+                </div>
               </div>
             </div>
-            <div class="polaroid-caption-row">
-              <span class="polaroid-caption">My Favourite Girl</span>
-              <span class="polaroid-date">Memory #4</span>
+          </div>
+
+          <!-- Polaroid 3 -->
+          <div class="polaroid-scene reveal-on-scroll" data-index="2">
+            <span class="polaroid-tape" aria-hidden="true"></span>
+            <div class="polaroid-flipper">
+              <div class="polaroid-front" role="button" tabindex="0" aria-label="Flip Study Break Snacks Polaroid to read back note">
+                <div class="polaroid-frame">
+                  <img src="assets/photo3.jpg" alt="Late night study break" class="polaroid-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                  <div class="polaroid-fallback" style="display: none;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    <span class="fallback-label">Study Break Snacks</span>
+                    <span class="fallback-path">Replace: assets/photo3.jpg</span>
+                  </div>
+                </div>
+                <div class="polaroid-caption-row">
+                  <span class="polaroid-caption">Study Break Snacks</span>
+                  <span class="polaroid-date">Memory #3</span>
+                </div>
+                <p class="polaroid-note">Thank you for making even busy exam days feel warm and calm.</p>
+                <span class="polaroid-flip-hint">↻ Tap to read the back</span>
+              </div>
+
+              <div class="polaroid-back">
+                <div class="back-header">
+                  <span class="back-stamp">Library &amp; Late Nights</span>
+                  <span aria-hidden="true">♡</span>
+                </div>
+                <p class="back-handwritten">
+                  "Even when we're buried in lecture notes, a ten-minute snack break with you resets my entire week."
+                </p>
+                <div class="back-actions">
+                  <button type="button" class="mini-action-btn flip-back-btn">↺ Flip back</button>
+                  <button type="button" class="mini-action-btn zoom-photo-btn">⤢ Enlarge photo</button>
+                </div>
+              </div>
             </div>
-            <p class="polaroid-note">You will always be my favourite girl. Really pretty and cool picture of you!</p>
-          </button>
+          </div>
+
+          <!-- Polaroid 4 -->
+          <div class="polaroid-scene reveal-on-scroll" data-index="3">
+            <span class="polaroid-tape" aria-hidden="true"></span>
+            <span class="paperclip-ornament" aria-hidden="true">
+              <svg width="18" height="36" viewBox="0 0 24 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+                <path d="M6 14V34C6 39.5 10.5 44 16 44C21.5 44 22 39.5 22 34V10C22 6.5 19.5 4 16 4C12.5 4 10 6.5 10 10V32C10 34.2 11.8 36 14 36C16.2 36 18 34.2 18 32V14"/>
+              </svg>
+            </span>
+            <div class="polaroid-flipper">
+              <div class="polaroid-front" role="button" tabindex="0" aria-label="Flip My Favourite Smile Polaroid to read back note">
+                <div class="polaroid-frame">
+                  <img src="assets/photo4.jpg" alt="My favourite smile" class="polaroid-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                  <div class="polaroid-fallback" style="display: none;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <span class="fallback-label">My Favourite Smile</span>
+                    <span class="fallback-path">Replace: assets/photo4.jpg</span>
+                  </div>
+                </div>
+                <div class="polaroid-caption-row">
+                  <span class="polaroid-caption">My Favourite Smile</span>
+                  <span class="polaroid-date">Memory #4</span>
+                </div>
+                <p class="polaroid-note">You wearing blue will forever be my favourite sight.</p>
+                <span class="polaroid-flip-hint">↻ Tap to read the back</span>
+              </div>
+
+              <div class="polaroid-back">
+                <div class="back-header">
+                  <span class="back-stamp">My Favourite Photo of You</span>
+                  <span aria-hidden="true">★</span>
+                </div>
+                <p class="back-handwritten">
+                  "Every time I look at this photo, I'm reminded how lucky I am to love someone as radiant and kind-hearted as you."
+                </p>
+                <div class="back-actions">
+                  <button type="button" class="mini-action-btn flip-back-btn">↺ Flip back</button>
+                  <button type="button" class="mini-action-btn zoom-photo-btn">⤢ Enlarge photo</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- ======================================================================
-         SECTION C — A LETTER FOR YOU
+         SECTION C — A LETTER FOR YOU (WITH FOUNTAIN-PEN INK ANIMATION TOGGLE)
          ====================================================================== -->
     <section id="letter" aria-labelledby="letter-heading">
       <div class="container">
@@ -1082,16 +1594,22 @@
         </div>
 
         <div class="letter-wrapper reveal-on-scroll">
+          <div class="letter-toolbar">
+            <button type="button" class="ink-write-btn" id="replay-ink-btn">
+              <span>✒️ Watch letter unfold in ink</span>
+            </button>
+          </div>
+
           <article class="letter-card">
-            <!-- Decorative Blue Stamp -->
+            <!-- Decorative Blue Hydrangea Postage Stamp -->
             <div class="letter-stamp" aria-hidden="true" title="Blue Hydrangea Stamp">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
                 <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
               </svg>
+              <span>AIR MAIL</span>
             </div>
 
-            <!-- EDIT LETTER CONTENT BELOW (or in script.js CONFIG) -->
-            <p class="letter-greeting" id="letter-greeting">My dearest Constance,</p>
+            <p class="letter-greeting" id="letter-greeting">My dearest Sophie,</p>
 
             <div class="letter-body" id="letter-body">
               <p>
@@ -1115,7 +1633,7 @@
     </section>
 
     <!-- ======================================================================
-         SECTION D — A LITTLE SURPRISE (INTERACTIVE ENVELOPE / GIFT)
+         SECTION D — MAKE A WISH CANDLE & WAX-SEALED SURPRISE VOUCHER
          ====================================================================== -->
     <section id="surprise" aria-labelledby="surprise-heading">
       <div class="container">
@@ -1123,12 +1641,52 @@
           <span class="section-tag">Chapter Three</span>
           <h2 class="section-title" id="surprise-heading">A Little Surprise</h2>
           <p class="section-subtitle">
-            One more tiny birthday gift waiting inside this envelope.
+            First make a birthday wish, then break the wax seal on your envelope below.
           </p>
         </div>
 
-        <div class="surprise-container reveal-on-scroll">
-          <div class="envelope-card" id="envelope-card">
+        <div class="surprise-grid">
+          <!-- 1. Interactive Make-a-Birthday-Wish Candle Card -->
+          <div class="wish-card reveal-on-scroll" id="wish-card">
+            <div class="hearts-burst" id="wish-hearts-burst" aria-hidden="true"></div>
+
+            <button
+              type="button"
+              class="candle-stage"
+              id="blow-candle-btn"
+              aria-label="Blow out the birthday candle to make a wish"
+            >
+              <svg width="96" height="122" viewBox="0 0 96 122" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Smoke Wisp (Revealed after blowing out) -->
+                <path class="smoke-wisp" d="M48 34 C42 24, 55 16, 46 4" stroke="#89A9C6" stroke-width="2" stroke-linecap="round" fill="none"/>
+                <!-- Glowing Candle Flame -->
+                <g class="flame-group">
+                  <circle cx="48" cy="24" r="16" fill="#F8C471" fill-opacity="0.28"/>
+                  <path d="M48 8C48 8 38 20 38 27C38 32.5228 42.4772 37 48 37C53.5228 37 58 32.5228 58 27C58 20 48 8 48 8Z" fill="#F5B041"/>
+                  <path d="M48 16C48 16 43 23 43 27.5C43 30.5 45.2 33 48 33C50.8 33 53 30.5 53 27.5C53 23 48 16 48 16Z" fill="#FFF9E6"/>
+                </g>
+                <!-- Wick -->
+                <line x1="48" y1="36" x2="48" y2="43" stroke="#4A3B36" stroke-width="2" stroke-linecap="round"/>
+                <!-- Striped Hydrangea Blue Candle -->
+                <rect x="39" y="43" width="18" height="44" rx="4" fill="#FFFDF9" stroke="#5B82A6" stroke-width="1.8"/>
+                <path d="M39 54L57 48M39 67L57 61M39 80L57 74" stroke="#DCE7F2" stroke-width="4"/>
+                <!-- Minimalist Porcelain Saucer & Cupcake Base -->
+                <ellipse cx="48" cy="89" rx="30" ry="6" fill="#DCE7F2" stroke="#5B82A6" stroke-width="1.6"/>
+                <path d="M26 89C26 98 35 104 48 104C61 104 70 98 70 89" fill="#F4E1E0" stroke="#C88A8B" stroke-width="1.6"/>
+              </svg>
+            </button>
+
+            <h3 class="wish-title" id="wish-title">Make a Birthday Wish</h3>
+            <p class="wish-status" id="wish-status">
+              Close your eyes, make a wish, and tap the glowing flame to blow out your candle.
+            </p>
+            <button type="button" class="relight-btn" id="relight-candle-btn">
+              ✨ Relight candle
+            </button>
+          </div>
+
+          <!-- 2. Wax-Sealed Envelope with Perforated Tear-Off Date Voucher -->
+          <div class="envelope-card reveal-on-scroll" id="envelope-card">
             <div class="hearts-burst" id="hearts-burst" aria-hidden="true"></div>
 
             <button
@@ -1139,7 +1697,7 @@
               aria-controls="surprise-content"
             >
               <span class="wax-seal" aria-hidden="true">
-                <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
                 </svg>
               </span>
@@ -1147,16 +1705,24 @@
               <span class="envelope-subprompt">Sealed with love just for you</span>
             </button>
 
-            <!-- Hidden Surprise Message -->
+            <!-- Revealed Perforated Voucher -->
             <div class="surprise-reveal" id="surprise-content" role="region" aria-live="polite">
-              <span class="surprise-voucher-badge" id="surprise-badge">Birthday Date Voucher</span>
-              <h3 class="surprise-title" id="surprise-title">Dinner &amp; Dessert On Me!</h3>
-              <p class="surprise-text" id="surprise-message">
-                Redeemable anytime for one full birthday celebration date: your favourite food, sweet treats, and zero talk about exams all evening.
-              </p>
-              <p class="surprise-fineprint" id="surprise-fineprint">
-                Valid forever • No expiration date ♡
-              </p>
+              <div class="voucher-top">
+                <span class="surprise-voucher-badge" id="surprise-badge">Birthday Date Voucher</span>
+                <h3 class="surprise-title" id="surprise-title">Dinner &amp; Dessert On Me!</h3>
+                <p class="surprise-text" id="surprise-message">
+                  Redeemable anytime for one full birthday celebration date: your favourite food, sweet treats, and zero talk about exams all evening.
+                </p>
+              </div>
+              <div class="voucher-perforation" aria-hidden="true"></div>
+              <div class="voucher-stub">
+                <p class="surprise-fineprint" id="surprise-fineprint">
+                  Valid forever • No expiration date ♡
+                </p>
+                <button type="button" class="claim-voucher-btn" id="claim-voucher-btn">
+                  <span>♡ Claim this date voucher</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -1204,62 +1770,80 @@
   </div>
 
   <!-- ========================================================================
-       JAVASCRIPT — EASY PERSONALISATION & INTERACTIONS
+       JAVASCRIPT — EASY PERSONALISATION & TACTILE INTERACTIONS
        ======================================================================== -->
   <script>
     /* ========================================================================
        ★ EASY CUSTOMISATION BLOCK (EDIT EVERYTHING IN ONE PLACE HERE!) ★
        ======================================================================== */
     const BIRTHDAY_CONFIG = {
-      herName: "Constance",
-      dateBadge: "Celebrating You!! Today • ♡",
-      heroSubtitle: "Here's something to lighten up your exam mood!!",
+      herName: "Sophie",
+      dateBadge: "Celebrating You Today • ♡",
+      heroSubtitle: "A little something made just for you.",
 
-      // 4 Scrapbook Polaroid Memories
+      // 4 Scrapbook Polaroid Memories (Front + Handwritten Back-of-Photo Notes)
       // Put your own photos inside an "assets" folder (e.g. assets/photo1.jpg)
       photos: [
         {
           src: "assets/photo1.jpg",
-          alt: "The Very Beginning",
-          caption: "The Very Beginning",
+          alt: "Coffee date together",
+          caption: "Our Coffee Date",
           dateTag: "Memory #1",
-          note: "Throwback to the Year 7 Era HAHAHAHA"
+          note: "I still remember how much we laughed that afternoon.",
+          locationStamp: "Corner Café • Rainy Afternoon",
+          backStory:
+            "\"You ordered your favourite drink and talked with your eyes sparkling the whole time. That was the exact moment I knew I could listen to you forever.\""
         },
         {
           src: "assets/photo2.jpg",
-          alt: "The Night I Made You Mine",
-          caption: "The Night I Made You Mine",
+          alt: "Golden hour walk",
+          caption: "Golden Hour Walk",
           dateTag: "Memory #2",
-          note: "I won't ever forget that night.. One of my happiest memories"
+          note: "Every walk feels ten times better with your hand in mine.",
+          locationStamp: "Sunset Stroll • 6:15 PM",
+          backStory:
+            "\"We didn't even have a destination in mind, just walking side by side while the sky turned pastel blue and pink.\""
         },
         {
           src: "assets/photo3.jpg",
           alt: "Late night study break",
-          caption: "Kinda Our last hangout?",
+          caption: "Study Break Snacks",
           dateTag: "Memory #3",
-          note: "Thank you for always inviting me!! So fun going out with you!"
+          note: "Thank you for making even busy exam days feel warm and calm.",
+          locationStamp: "Library & Late Nights",
+          backStory:
+            "\"Even when we're buried in lecture notes, a ten-minute snack break with you resets my entire week.\""
         },
         {
           src: "assets/photo4.jpg",
           alt: "My favourite smile",
-          caption: "My Favourite Person",
+          caption: "My Favourite Smile",
           dateTag: "Memory #4",
-          note: "I hope that I always get to call you mine."
+          note: "You wearing blue will forever be my favourite sight.",
+          locationStamp: "My Favourite Photo of You",
+          backStory:
+            "\"Every time I look at this photo, I'm reminded how lucky I am to love someone as radiant and kind-hearted as you.\""
         }
       ],
 
       // Handwritten-style Letter
-      letterGreeting: "My dearest Constance,",
+      letterGreeting: "My dearest Sophie,",
       letterParagraphs: [
         "Happy Birthday, my love. Even in the middle of busy lectures and exam revision, my favourite part of every single day is still talking to you, seeing your smile, and knowing I get to call you mine.",
         "You bring so much gentleness, warmth, and quiet magic into my life. Whether we are dressed up for a proper date or just sharing snacks in comfy clothes, being around you always feels like home.",
         "I made this little blue-and-cream scrapbook page so you have something you can open whenever you want a reminder of how deeply you are loved. I hope this new year of your life brings you every bit of happiness you give to me every day."
       ],
       letterClosingLine: "Forever yours,",
-      letterSignature: "Me, hehehe ♡",
+      letterSignature: "Your Boyfriend ♡",
 
-      // Hidden Surprise Envelope Message
-      surpriseBadge: "Whatever You Wn  Voucher",
+      // Birthday Candle Wish Message
+      wishPrompt:
+        "Close your eyes, make a wish, and tap the glowing flame to blow out your candle.",
+      wishGrantedMessage:
+        "Wish made! ♡ May every single dream you wished for come true this year.",
+
+      // Hidden Surprise Envelope Voucher
+      surpriseBadge: "Birthday Date Voucher",
       surpriseTitle: "Dinner & Dessert On Me!",
       surpriseMessage:
         "Redeemable anytime for one full birthday celebration date: your favourite food, sweet treats, and zero talk about exams all evening.",
@@ -1276,6 +1860,7 @@
        ======================================================================== */
     document.addEventListener("DOMContentLoaded", () => {
       document.documentElement.classList.add("js-enabled");
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
       // 1. Apply Personalised Text from BIRTHDAY_CONFIG
       const setText = (id, text) => {
@@ -1290,6 +1875,7 @@
       setText("letter-greeting", BIRTHDAY_CONFIG.letterGreeting);
       setText("letter-closing-line", BIRTHDAY_CONFIG.letterClosingLine);
       setText("letter-signature", BIRTHDAY_CONFIG.letterSignature);
+      setText("wish-status", BIRTHDAY_CONFIG.wishPrompt);
       setText("surprise-badge", BIRTHDAY_CONFIG.surpriseBadge);
       setText("surprise-title", BIRTHDAY_CONFIG.surpriseTitle);
       setText("surprise-message", BIRTHDAY_CONFIG.surpriseMessage);
@@ -1299,24 +1885,29 @@
 
       // Populate Letter Paragraphs
       const letterBodyEl = document.getElementById("letter-body");
-      if (letterBodyEl && Array.isArray(BIRTHDAY_CONFIG.letterParagraphs)) {
-        letterBodyEl.innerHTML = BIRTHDAY_CONFIG.letterParagraphs
-          .map((p) => `<p>${p}</p>`)
-          .join("");
-      }
+      const renderLetterStatic = () => {
+        if (letterBodyEl && Array.isArray(BIRTHDAY_CONFIG.letterParagraphs)) {
+          letterBodyEl.innerHTML = BIRTHDAY_CONFIG.letterParagraphs
+            .map((p) => `<p>${p}</p>`)
+            .join("");
+        }
+      };
+      renderLetterStatic();
 
-      // Update Polaroid Cards from Config
-      const polaroidCards = document.querySelectorAll(".polaroid-card");
-      polaroidCards.forEach((card, index) => {
+      // 2. Update 3D Flip-to-Read Polaroid Cards from Config
+      const polaroidScenes = document.querySelectorAll(".polaroid-scene");
+      polaroidScenes.forEach((scene, index) => {
         const item = BIRTHDAY_CONFIG.photos[index];
         if (!item) return;
 
-        const img = card.querySelector(".polaroid-img");
-        const fallbackLabel = card.querySelector(".fallback-label");
-        const fallbackPath = card.querySelector(".fallback-path");
-        const caption = card.querySelector(".polaroid-caption");
-        const dateTag = card.querySelector(".polaroid-date");
-        const note = card.querySelector(".polaroid-note");
+        const img = scene.querySelector(".polaroid-img");
+        const fallbackLabel = scene.querySelector(".fallback-label");
+        const fallbackPath = scene.querySelector(".fallback-path");
+        const caption = scene.querySelector(".polaroid-caption");
+        const dateTag = scene.querySelector(".polaroid-date");
+        const note = scene.querySelector(".polaroid-note");
+        const backStamp = scene.querySelector(".back-stamp");
+        const backHandwritten = scene.querySelector(".back-handwritten");
 
         if (img) {
           img.src = item.src;
@@ -1327,12 +1918,45 @@
         if (caption) caption.textContent = item.caption;
         if (dateTag) dateTag.textContent = item.dateTag;
         if (note) note.textContent = item.note;
+        if (backStamp && item.locationStamp) backStamp.textContent = item.locationStamp;
+        if (backHandwritten && item.backStory) backHandwritten.textContent = item.backStory;
+
+        // Flip interaction on Front Card
+        const front = scene.querySelector(".polaroid-front");
+        const flipBackBtn = scene.querySelector(".flip-back-btn");
+        const zoomBtn = scene.querySelector(".zoom-photo-btn");
+
+        const toggleFlip = (state) => {
+          scene.classList.toggle("is-flipped", state);
+        };
+
+        if (front) {
+          front.addEventListener("click", () => toggleFlip(true));
+          front.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              toggleFlip(true);
+            }
+          });
+        }
+
+        if (flipBackBtn) {
+          flipBackBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            toggleFlip(false);
+          });
+        }
+
+        if (zoomBtn) {
+          zoomBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            openLightbox(index, zoomBtn);
+          });
+        }
       });
 
-      // 2. Gentle Scroll Reveal Observer
+      // 3. Gentle Scroll Reveal Observer
       const revealItems = document.querySelectorAll(".reveal-on-scroll");
-      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
       if (!prefersReducedMotion && "IntersectionObserver" in window) {
         const observer = new IntersectionObserver(
           (entries, obs) => {
@@ -1350,48 +1974,77 @@
         revealItems.forEach((item) => item.classList.add("is-visible"));
       }
 
-      // 3. Accessible Photo Lightbox
+      // 4. Fountain-Pen Ink Unfold Effect for Letter
+      const replayInkBtn = document.getElementById("replay-ink-btn");
+      let inkTimer = null;
+
+      if (replayInkBtn && letterBodyEl) {
+        replayInkBtn.addEventListener("click", () => {
+          if (prefersReducedMotion) return;
+          if (inkTimer) clearInterval(inkTimer);
+
+          letterBodyEl.innerHTML = BIRTHDAY_CONFIG.letterParagraphs.map(() => `<p></p>`).join("");
+          const pElements = letterBodyEl.querySelectorAll("p");
+
+          let pIndex = 0;
+          let charIndex = 0;
+
+          inkTimer = setInterval(() => {
+            const currentText = BIRTHDAY_CONFIG.letterParagraphs[pIndex];
+            if (!currentText) {
+              clearInterval(inkTimer);
+              return;
+            }
+            pElements[pIndex].textContent = currentText.slice(0, charIndex + 3);
+            charIndex += 3;
+
+            if (charIndex >= currentText.length) {
+              pElements[pIndex].textContent = currentText;
+              pIndex++;
+              charIndex = 0;
+              if (pIndex >= BIRTHDAY_CONFIG.letterParagraphs.length) {
+                clearInterval(inkTimer);
+              }
+            }
+          }, 22);
+        });
+      }
+
+      // 5. Accessible Photo Lightbox
       const lightbox = document.getElementById("photo-lightbox");
       const lightboxMedia = document.getElementById("lightbox-media");
       const lightboxCaption = document.getElementById("lightbox-caption");
       const lightboxNote = document.getElementById("lightbox-note");
       const lightboxClose = document.getElementById("lightbox-close");
-      let lastFocusedCard = null;
+      let lastFocusedEl = null;
 
-      const openLightbox = (index, triggerEl) => {
+      function openLightbox(index, triggerEl) {
         const item = BIRTHDAY_CONFIG.photos[index];
-        if (!item || !lightbox) return;
-        lastFocusedCard = triggerEl;
+        const scene = polaroidScenes[index];
+        if (!item || !lightbox || !scene) return;
+        lastFocusedEl = triggerEl;
 
-        // Clone the card's frame content (works whether real image or fallback illustration is active)
-        const sourceFrame = triggerEl.querySelector(".polaroid-frame");
+        const sourceFrame = scene.querySelector(".polaroid-frame");
         if (sourceFrame && lightboxMedia) {
           lightboxMedia.innerHTML = sourceFrame.innerHTML;
         }
 
         if (lightboxCaption) lightboxCaption.textContent = `${item.caption} (${item.dateTag})`;
-        if (lightboxNote) lightboxNote.textContent = item.note;
+        if (lightboxNote) lightboxNote.textContent = item.backStory || item.note;
 
         lightbox.classList.add("is-active");
         lightbox.setAttribute("aria-hidden", "false");
         lightboxClose.focus();
-      };
+      }
 
       const closeLightbox = () => {
         if (!lightbox) return;
         lightbox.classList.remove("is-active");
         lightbox.setAttribute("aria-hidden", "true");
-        if (lastFocusedCard) lastFocusedCard.focus();
+        if (lastFocusedEl) lastFocusedEl.focus();
       };
 
-      polaroidCards.forEach((card, idx) => {
-        card.addEventListener("click", () => openLightbox(idx, card));
-      });
-
-      if (lightboxClose) {
-        lightboxClose.addEventListener("click", closeLightbox);
-      }
-
+      if (lightboxClose) lightboxClose.addEventListener("click", closeLightbox);
       if (lightbox) {
         lightbox.addEventListener("click", (e) => {
           if (e.target === lightbox) closeLightbox();
@@ -1404,28 +2057,53 @@
         }
       });
 
-      // 4. Section D — Surprise Envelope Interaction + Gentle Heart Animation
-      const surpriseBtn = document.getElementById("surprise-btn");
-      const surpriseContent = document.getElementById("surprise-content");
-      const promptText = document.getElementById("envelope-prompt-text");
-      const heartsBurst = document.getElementById("hearts-burst");
-
-      const spawnGentleHearts = () => {
-        if (prefersReducedMotion || !heartsBurst) return;
-        heartsBurst.innerHTML = "";
-        const symbols = ["♡", "♥", "✿", "♡", "♥", "♡"];
-        const colours = ["#5B82A6", "#C88A88", "#3E5F7E", "#D99B99", "#5B82A6", "#C88A88"];
+      // Helper for Floating Hearts / Petals Burst
+      const spawnGentleHearts = (containerEl) => {
+        if (prefersReducedMotion || !containerEl) return;
+        containerEl.innerHTML = "";
+        const symbols = ["♡", "♥", "✿", "♡", "♥", "✿"];
+        const colours = ["#5B82A6", "#C88A8B", "#3D5A75", "#D99B99", "#5B82A6", "#C88A8B"];
 
         symbols.forEach((sym, i) => {
           const span = document.createElement("span");
           span.className = "floating-heart";
           span.textContent = sym;
-          span.style.left = `${18 + i * 13}%`;
+          span.style.left = `${16 + i * 13}%`;
           span.style.color = colours[i % colours.length];
-          span.style.animationDelay = `${i * 0.12}s`;
-          heartsBurst.appendChild(span);
+          span.style.animationDelay = `${i * 0.11}s`;
+          containerEl.appendChild(span);
         });
       };
+
+      // 6. Interactive Birthday Wish Candle
+      const wishCard = document.getElementById("wish-card");
+      const blowCandleBtn = document.getElementById("blow-candle-btn");
+      const relightCandleBtn = document.getElementById("relight-candle-btn");
+      const wishStatus = document.getElementById("wish-status");
+      const wishHeartsBurst = document.getElementById("wish-hearts-burst");
+
+      if (blowCandleBtn && wishCard) {
+        blowCandleBtn.addEventListener("click", () => {
+          if (wishCard.classList.contains("is-blown")) return;
+          wishCard.classList.add("is-blown");
+          if (wishStatus) wishStatus.textContent = BIRTHDAY_CONFIG.wishGrantedMessage;
+          spawnGentleHearts(wishHeartsBurst);
+        });
+      }
+
+      if (relightCandleBtn && wishCard) {
+        relightCandleBtn.addEventListener("click", () => {
+          wishCard.classList.remove("is-blown");
+          if (wishStatus) wishStatus.textContent = BIRTHDAY_CONFIG.wishPrompt;
+        });
+      }
+
+      // 7. Surprise Envelope + Claimable Date Voucher
+      const surpriseBtn = document.getElementById("surprise-btn");
+      const surpriseContent = document.getElementById("surprise-content");
+      const promptText = document.getElementById("envelope-prompt-text");
+      const heartsBurst = document.getElementById("hearts-burst");
+      const claimVoucherBtn = document.getElementById("claim-voucher-btn");
 
       if (surpriseBtn && surpriseContent) {
         surpriseBtn.addEventListener("click", () => {
@@ -1442,12 +2120,22 @@
           }
 
           if (nextState) {
-            spawnGentleHearts();
+            spawnGentleHearts(heartsBurst);
           }
         });
       }
 
-      // 5. Optional Gentle Music Toggle (Supports local MP3 OR Built-in Soft Music-Box Chime)
+      if (claimVoucherBtn) {
+        claimVoucherBtn.addEventListener("click", () => {
+          const claimed = claimVoucherBtn.classList.toggle("is-claimed");
+          claimVoucherBtn.innerHTML = claimed
+            ? "<span>✓ Voucher Claimed &amp; Saved ♡</span>"
+            : "<span>♡ Claim this date voucher</span>";
+          if (claimed) spawnGentleHearts(heartsBurst);
+        });
+      }
+
+      // 8. Spinning Vinyl Music Toggle (Supports local MP3 OR Built-in Soft Music-Box Chime)
       const musicToggle = document.getElementById("music-toggle");
       const musicLabel = document.getElementById("music-label");
       const audioEl = document.getElementById("bg-music");
@@ -1456,14 +2144,12 @@
       let synthInterval = null;
       let audioCtx = null;
 
-      // Built-in soft music box melody fallback so the button works immediately even without an MP3 file
       const playMusicBoxMelody = () => {
         const AudioContextClass = window.AudioContext || window.webkitAudioContext;
         if (!AudioContextClass) return;
         if (!audioCtx) audioCtx = new AudioContextClass();
         if (audioCtx.state === "suspended") audioCtx.resume();
 
-        // Gentle "Happy Birthday" notes in Hz
         const notes = [
           261.63, 261.63, 293.66, 261.63, 349.23, 329.63,
           261.63, 261.63, 293.66, 261.63, 392.00, 349.23
@@ -1478,25 +2164,23 @@
           osc.frequency.setValueAtTime(notes[step % notes.length], audioCtx.currentTime);
 
           gain.gain.setValueAtTime(0.001, audioCtx.currentTime);
-          gain.gain.exponentialRampToValueAtTime(0.06, audioCtx.currentTime + 0.05);
-          gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.75);
+          gain.gain.exponentialRampToValueAtTime(0.055, audioCtx.currentTime + 0.05);
+          gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.78);
 
           osc.connect(gain);
           gain.connect(audioCtx.destination);
           osc.start();
-          osc.stop(audioCtx.currentTime + 0.8);
+          osc.stop(audioCtx.currentTime + 0.82);
           step++;
         };
 
         playNote();
-        synthInterval = setInterval(playNote, 850);
+        synthInterval = setInterval(playNote, 860);
       };
 
       const stopMusic = () => {
         isPlaying = false;
-        if (audioEl) {
-          audioEl.pause();
-        }
+        if (audioEl) audioEl.pause();
         if (synthInterval) {
           clearInterval(synthInterval);
           synthInterval = null;
@@ -1514,13 +2198,12 @@
 
           isPlaying = true;
           musicToggle.setAttribute("aria-pressed", "true");
-          if (musicLabel) musicLabel.textContent = "Pause melody ❚❚";
+          if (musicLabel) musicLabel.textContent = "Playing ♪";
 
           if (audioEl) {
             const playPromise = audioEl.play();
             if (playPromise !== undefined) {
               playPromise.catch(() => {
-                // If assets/song.mp3 isn't placed yet, smoothly play the built-in music-box chime!
                 playMusicBoxMelody();
               });
             }
