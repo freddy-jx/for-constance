@@ -505,11 +505,11 @@
     }
 
     .letter-body p.letter-center {
-      text-align: center;
+      text-align: center !important;
     }
 
     .letter-body strong {
-      font-weight: 700;
+      font-weight: 700 !important;
     }
 
     /* ==========================================================================
@@ -2868,17 +2868,26 @@ Before the end of the letter, I just hope you know that I’m sorry for any of t
 const renderParagraphsToHtml = (paragraphs) =>
   paragraphs
     .map((raw) => {
-      const p = String(raw);
-      let html = p.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
-      const trimmed = p.trim();
-      const isCentered = /^::[\s\S]*::$/.test(trimmed);
-      if (isCentered) {
-        html = html.replace(/^::\s*/, "").replace(/\s*::$/, "");
+      let p = String(raw).trim();
+      let isCentered = false;
+
+      // 1. Check if the paragraph contains centering markers anywhere
+      if (p.includes("::")) {
+        isCentered = true;
+        // Remove ALL :: markers from the string
+        p = p.replace(/::/g, "").trim();
       }
+
+      // 2. Apply bold formatting **text**
+      let html = p.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+
+      // 3. Escape HTML for safety, then restore the <strong> tags
       html = escapeHtml(html)
         .replace(/&lt;strong&gt;/g, "<strong>")
         .replace(/&lt;\/strong&gt;/g, "</strong>")
         .replace(/\n/g, "<br>");
+
+      // 4. Return with or without the centering class
       return isCentered
         ? `<p class="letter-center">${html}</p>`
         : `<p>${html}</p>`;
